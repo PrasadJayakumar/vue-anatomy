@@ -1,0 +1,30 @@
+table {
+  border-collapse: collapse;
+  width: 316px;
+  table-layout: "fixed";
+}
+
+th,
+td {
+  text-align: left;
+  padding: 4px;
+}
+
+tr[comp="keep-alive-counter"] {
+  background-color: #9ccc65;
+  color: black;
+}
+
+tr[comp="regular-counter"] {
+  background-color: #558b2f;
+  color: #fff;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}

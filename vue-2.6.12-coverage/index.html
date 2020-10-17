@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vue.js code coverage app</title>
+    <script src="./vue.js"></script>
+    <link rel="stylesheet" href="global.css" />
+  </head>
+  <body>
+    <div id="demo">
+      <h1>Vue.js code coverage app</h1>
+      <div id="template-syntax">
+        <h2>Template Syntax</h2>
+        <p>Using mustaches: {{ rawHtml }}</p>
+        <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+        <p>Simple JS expressions are {{ 1+2 ? 'OK' : 'NOT OK' }}</p>
+        <p>
+          <button v-on:click="suggestABook">Suggest a book</button>
+          <a v-bind:href="bookUrl">{{ bookUrl }}</a>
+        </p>
+      </div>
+      <div id="computed-props">
+        <h2>Computed Properties</h2>
+        <div id="basic-examples" v-once>
+          <p>Original message: "{{ message }}"</p>
+          <p>Computed reversed message: "{{ reversedMessage }}"</p>
+        </div>
+        <div id="computed-vs-watched">
+          <input v-model="firstName" placeholder="first name" />
+          <input v-model="lastName" placeholder="last name" />
+          <p>Full Name: "{{ fullName }}"</p>
+        </div>
+      </div>
+      <div id="child-component-counter">
+        <h2>Child Component</h2>
+        <span>
+          <input
+            id="show-button-counter"
+            v-model="buttonCounter"
+            name="button-counter"
+            type="radio"
+            value="show"
+          />
+          <label for="show-button-counter">Show</label>
+          <input
+            id="hide-button-counter"
+            v-model="buttonCounter"
+            name="button-counter"
+            type="radio"
+            value="hide"
+          />
+          <label for="hide-button-counter">Hide</label>
+        </span>
+        <transition name="fade">
+          <keep-alive>
+            <button-counter
+              :initial-counter="counter"
+              :increment-value="1"
+              @event-msg="onEventMsg('keep-alive-counter',$event)"
+              v-if="buttonCounter=='show'"
+            ></button-counter>
+          </keep-alive>
+        </transition>
+        <transition>
+          <button-counter
+            :initial-counter="counter"
+            :increment-value="2"
+            @event-msg="onEventMsg('regular-counter',$event)"
+            v-if="buttonCounter=='show'"
+            #fff
+          ></button-counter>
+        </transition>
+      </div>
+      <div id="lifecycle-events">
+        <table>
+          <thead>
+            <tr>
+              <th>Index</th>
+              <th>Keep-alive</th>
+              <th>Regular</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="({id, msg}, index) in eventMsgs" :comp="id">
+              <td class="index">{{index}}</td>
+              <td class="comp1">
+                {{id == 'keep-alive-counter'? msg: '&nbsp;'}}
+              </td>
+              <td class="comp2">{{id == 'regular-counter'? msg: '&nbsp;'}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
