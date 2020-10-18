@@ -19,8 +19,9 @@ I have created a sample Vue app which touches upon the following concepts/constr
 7. [Event Handling](https://vuejs.org/v2/guide/events.html)
 8. [Form Input Bindings](https://vuejs.org/v2/guide/forms.html)
 9. [Components Basics](https://vuejs.org/v2/guide/components.html)
-10. [Transitions & Animation](https://vuejs.org/v2/guide/transitions.html)
-11. [Render Functions](https://vuejs.org/v2/guide/render-function.html#Basics)
+10. [Slots](https://vuejs.org/v2/guide/components-slots.html)
+12. [Render Functions](https://vuejs.org/v2/guide/render-function.html#Basics)
+13. [Transitions & Animation](https://vuejs.org/v2/guide/transitions.html)
 
 ## How to Run 
 
