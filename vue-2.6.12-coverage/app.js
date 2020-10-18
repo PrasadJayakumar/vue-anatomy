@@ -4,7 +4,6 @@ var app = new Vue({
 
   data() {
     return {
-      bookUrl: '',
       rawHtml:
         "<span style='color:red'>Don't use v-html on user provided data</span>",
       firstName: 'Prasad',
@@ -14,6 +13,7 @@ var app = new Vue({
 
       counter: 5,
       buttonCounter: 'show',
+      warn: true
     };
   },
   computed: {
@@ -31,9 +31,6 @@ var app = new Vue({
     },
   },
   methods: {
-    suggestABook() {
-      this.bookUrl = 'https://recommendmeabook.com/';
-    },
     onEventMsg(id, msg) {
       this.eventMsgs.push({ id, msg });
     },

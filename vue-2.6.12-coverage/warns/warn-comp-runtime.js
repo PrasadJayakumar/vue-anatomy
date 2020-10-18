@@ -1,3 +1,10 @@
+Vue.config.productionTip = true;
+Vue.config.devtools = true;
+
+Vue.config.warnHandler = function (msg, vm, trace) {
+  console.log(`Warn: ${msg}`);
+};
+
 // warning will be raised only when the component is used
 
 // line 1657
@@ -82,7 +89,7 @@ Vue.component('warn-props-custom-check', {
 //   target
 // );
 Vue.component('warn-non-present', {
-  template: '<div><p>check{{ msg }}</p></div>',
+  template: '<div><p>{{ msg }}</p></div>',
 });
 
 // line: 2058
@@ -100,7 +107,7 @@ Vue.component('warn-reserved-prefix', {
       $msg: "don't use reserved prefix",
     };
   },
-  template: '<div><p>check{{ $msg }}</p></div>',
+  template: '<div><p>{{ $msg }}</p></div>',
 });
 
 // line: 2209
@@ -112,3 +119,42 @@ Vue.component('warn-reserved-prefix', {
 Vue.component('warn-invalid-handler', {
   template: '<div></div>',
 });
+
+// line: 2761
+// bindObjectProps(...)
+// warn(
+//   'v-bind without argument expects an Object or Array value',
+//   this
+// );
+Vue.component('warn-bind-without-args', {
+  template: '<div></div>',
+});
+
+// line: 2869
+// bindObjectListeners (data, value)
+// warn(
+//   'v-on without argument expects an Object value',
+//   this
+// );
+Vue.component('warn-bind-lsntr-without-args', {
+  methods: {
+    myFn() {},
+  },
+  template: '<div v-on="myFn"></div>',
+});
+
+// line: 3198
+// createComponent(...)
+// warn(("Invalid Component definition: " + (String(Ctor))), context);
+Vue.component('warn-comp-def', 'not-correct');
+
+// line: 3390
+// _createElement(...)
+// warn(
+//   'Avoid using non-primitive value as key, ' +
+//   'use string/number value instead.',
+//   context
+// );
+// Vue.component('warn-non-prim-key', {
+//   template: '<div></div>',
+// });

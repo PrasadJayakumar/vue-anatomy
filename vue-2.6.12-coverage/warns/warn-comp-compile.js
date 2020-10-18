@@ -1,5 +1,3 @@
-// Performance tracing
-Vue.config.performance = true;
 Vue.config.productionTip = true;
 Vue.config.devtools = true;
 

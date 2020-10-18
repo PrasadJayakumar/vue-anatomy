@@ -13,21 +13,20 @@
         <p>Using mustaches: {{ rawHtml }}</p>
         <p>Using v-html directive: <span v-html="rawHtml"></span></p>
         <p>Simple JS expressions are {{ 1+2 ? 'OK' : 'NOT OK' }}</p>
-        <p>
-          <button v-on:click="suggestABook">Suggest a book</button>
-          <a v-bind:href="bookUrl">{{ bookUrl }}</a>
-        </p>
       </div>
       <div id="computed-props">
         <h2>Computed Properties</h2>
         <div id="basic-examples" v-once>
-          <p>Original Full Name: "{{ fullName }}"</p>
+          <p>Full Name (v-once): {{ fullName }}</p>
         </div>
         <div id="computed-vs-watched">
           <input v-model="firstName" placeholder="first name" />
           <input v-model="lastName" placeholder="last name" />
-          <p>Full Name: "{{ fullName }}"</p>
+          <p>Full Name: {{ fullName }}</p>
         </div>
+      </div>
+      <div>
+        <anchored-heading :level="2">Render Function</anchored-heading>
       </div>
       <div id="child-component-counter">
         <h2>Child Components</h2>
@@ -69,7 +68,7 @@
           ></button-counter>
         </transition>
       </div>
-      <div id="warn-block">
+      <div id="warn-block" v-if="warn">
         <warn-props-default></warn-props-default>
         <warn-props-req></warn-props-req>
         <warn-props-type-check age="ten"></warn-props-type-check>
@@ -77,6 +76,9 @@
         <warn-non-present></warn-non-present>
         <warn-reserved-prefix></warn-reserved-prefix>
         <warn-invalid-handler @click="none"></warn-invalid-handler>
+        <warn-bind-without-args v-bind="10"></warn-bind-without-args>
+        <warn-bind-lsntr-without-args></warn-bind-lsntr-without-args>
+        <warn-comp-def></warn-comp-def>
       </div>
       <div id="lifecycle-events">
         <table>
@@ -101,6 +103,7 @@
     </div>
     <script src="warns/warn-comp-compile.js"></script>
     <script src="warns/warn-comp-runtime.js"></script>
+    <script src="components/anchored-heading.js"></script>    
     <script src="components/button-counter.js"></script>
     <script src="app.js"></script>
   </body>

@@ -20,6 +20,7 @@ I have created a sample Vue app which touches upon the following concepts/constr
 8. [Form Input Bindings](https://vuejs.org/v2/guide/forms.html)
 9. [Components Basics](https://vuejs.org/v2/guide/components.html)
 10. [Transitions & Animation](https://vuejs.org/v2/guide/transitions.html)
+11. [Render Functions](https://vuejs.org/v2/guide/render-function.html#Basics)
 
 ## How to Run 
 
