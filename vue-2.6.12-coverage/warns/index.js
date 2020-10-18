@@ -1,1 +1,0 @@
-import './warn-component.js'

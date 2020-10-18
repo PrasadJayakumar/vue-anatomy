@@ -37,12 +37,3 @@ var app = new Vue({
     },
   },
 });
-
-// Performance tracing
-Vue.config.performance = true;
-Vue.config.productionTip = true;
-Vue.config.devtools = true;
-
-Vue.config.warnHandler = function (msg, vm, trace) {
-  console.log(`Warn: ${msg}`);
-};

@@ -1,3 +1,12 @@
+// Performance tracing
+Vue.config.performance = true;
+Vue.config.productionTip = true;
+Vue.config.devtools = true;
+
+Vue.config.warnHandler = function (msg, vm, trace) {
+  console.log(`Warn: ${msg}`);
+};
+
 // line: 1170
 // strats.el
 // warn(
@@ -82,3 +91,26 @@ Vue.component('warn-computed', {
 });
 delete Vue.options.components['warn-computed'];
 
+// line 1657
+// getPropDefaultValue (vm, prop, key)
+// warn(
+//   'Invalid default value for prop "' + key + '": ' +
+//   'Props with type Object/Array must use a factory function ' +
+//   'to return the default value.',
+//   vm
+// );
+// Reference: https://github.com/vuejs/vue/issues/1032
+
+Vue.component('warn-props-default', {
+  name: 'warn-props-default',
+  props: {
+    myList: {
+      type: Array,
+      default: [10, 20], // wrong usage of Array or Object defaults
+      // default: () => [10, 20], // correct usage
+    },
+  },
+  template: '<div></div>',
+});
+// warning will come only when the component is used
+delete Vue.options.components['warn-props-default'];
