@@ -2,17 +2,19 @@ var app = new Vue({
   name: 'demo',
   el: '#demo',
 
-  data: {
-    bookUrl: '',
-    rawHtml:
-      "<span style='color:red'>Don't use v-html on user provided data</span>",
-    firstName: 'Prasad',
-    lastName: 'Jayakumar',
+  data() {
+    return {
+      bookUrl: '',
+      rawHtml:
+        "<span style='color:red'>Don't use v-html on user provided data</span>",
+      firstName: 'Prasad',
+      lastName: 'Jayakumar',
 
-    eventMsgs: [],
+      eventMsgs: [],
 
-    counter: 5,
-    buttonCounter: 'show',
+      counter: 5,
+      buttonCounter: 'show',
+    };
   },
   computed: {
     fullName: {

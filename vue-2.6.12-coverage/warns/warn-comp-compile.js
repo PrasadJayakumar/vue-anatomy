@@ -90,27 +90,3 @@ Vue.component('warn-computed', {
   computed: 'I am not the right value type',
 });
 delete Vue.options.components['warn-computed'];
-
-// line 1657
-// getPropDefaultValue (vm, prop, key)
-// warn(
-//   'Invalid default value for prop "' + key + '": ' +
-//   'Props with type Object/Array must use a factory function ' +
-//   'to return the default value.',
-//   vm
-// );
-// Reference: https://github.com/vuejs/vue/issues/1032
-
-Vue.component('warn-props-default', {
-  name: 'warn-props-default',
-  props: {
-    myList: {
-      type: Array,
-      default: [10, 20], // wrong usage of Array or Object defaults
-      // default: () => [10, 20], // correct usage
-    },
-  },
-  template: '<div></div>',
-});
-// warning will come only when the component is used
-delete Vue.options.components['warn-props-default'];
