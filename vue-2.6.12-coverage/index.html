@@ -17,16 +17,13 @@
       <div id="computed-props">
         <h2>Computed Properties</h2>
         <div id="basic-examples" v-once>
-          <p>Full Name (v-once): {{ fullName }}</p>
+          <p>Full Name (v-once): {{ fullName | titleCase}}</p>
         </div>
         <div id="computed-vs-watched">
           <input v-model="firstName" placeholder="first name" />
           <input v-model="lastName" placeholder="last name" />
           <p>Full Name: {{ fullName }}</p>
         </div>
-      </div>
-      <div>
-        <anchored-heading :level="2">Render Function</anchored-heading>
       </div>
       <div id="child-component-counter">
         <h2>Child Components</h2>
@@ -68,6 +65,39 @@
           ></button-counter>
         </transition>
       </div>
+      <div id="lifecycle-events">
+        <container>
+          <template v-slot:header>Events Table</template>
+          <table>
+            <thead>
+              <tr>
+                <th>Index</th>
+                <th>Keep-alive</th>
+                <th>Regular</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="({id, msg}, index) in eventMsgs" :comp="id">
+                <td class="index">{{index}}</td>
+                <td class="comp1">
+                  {{id == 'keep-alive-counter'? msg: '&nbsp;'}}
+                </td>
+                <td class="comp2">
+                  {{id == 'regular-counter'? msg: '&nbsp;'}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </container>
+      </div>
+      <div>
+        <anchored-heading :level="4">
+          <template v-slot:default>
+            {{ "render function" | title-case }}
+          </template>
+          <template v-slot:sub-heading>child elements included</template>
+        </anchored-heading>
+      </div>
       <div id="warn-block" v-if="warn">
         <warn-props-default></warn-props-default>
         <warn-props-req></warn-props-req>
@@ -80,31 +110,12 @@
         <warn-bind-lsntr-without-args></warn-bind-lsntr-without-args>
         <warn-comp-def></warn-comp-def>
       </div>
-      <div id="lifecycle-events">
-        <table>
-          <thead>
-            <tr>
-              <th>Index</th>
-              <th>Keep-alive</th>
-              <th>Regular</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="({id, msg}, index) in eventMsgs" :comp="id">
-              <td class="index">{{index}}</td>
-              <td class="comp1">
-                {{id == 'keep-alive-counter'? msg: '&nbsp;'}}
-              </td>
-              <td class="comp2">{{id == 'regular-counter'? msg: '&nbsp;'}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
     </div>
     <script src="warns/warn-comp-compile.js"></script>
     <script src="warns/warn-comp-runtime.js"></script>
-    <script src="components/anchored-heading.js"></script>    
     <script src="components/button-counter.js"></script>
+    <script src="components/container.js"></script>
+    <script src="components/anchored-heading.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

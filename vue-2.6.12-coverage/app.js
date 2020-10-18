@@ -1,3 +1,10 @@
+// Filter -- deprecated in Vue 3
+Vue.filter('titleCase', function (value) {
+  if (!value) return '';
+  values = value.toString().split(' ');
+  return values.map((v) => v.charAt(0).toUpperCase() + v.slice(1)).join(' ');
+});
+
 var app = new Vue({
   name: 'demo',
   el: '#demo',
@@ -6,14 +13,14 @@ var app = new Vue({
     return {
       rawHtml:
         "<span style='color:red'>Don't use v-html on user provided data</span>",
-      firstName: 'Prasad',
-      lastName: 'Jayakumar',
+      firstName: 'prasad',
+      lastName: 'jayakumar',
 
       eventMsgs: [],
 
       counter: 5,
       buttonCounter: 'show',
-      warn: true
+      warn: true,
     };
   },
   computed: {

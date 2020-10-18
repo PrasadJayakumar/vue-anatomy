@@ -1,8 +1,15 @@
 Vue.component('anchored-heading', {
   render: function (createElement) {
     return createElement(
-      'h' + this.level, // tag name
-      this.$slots.default // array of children
+      'div', // tag name
+      {},
+      [
+        createElement('h1', this.$slots.default),
+        createElement(
+          'h' + this.level,
+          this.$slots['sub-heading'] || 'some sub heading...'
+        ),
+      ]
     );
   },
   props: {
