@@ -6,7 +6,7 @@ PS: I am doing my preparations to become a Vue contributor
 
 **Current State of the App**
 
-I have created a sample Vue app which touches upon the following concepts/constructs.  This app currently covers 59.9% of Vue codebase (7150+ lines of overall 12000 lines)
+I have created a sample Vue app which touches upon the following concepts/constructs.  This app currently covers 63.6% of Vue codebase (7600+ lines of overall 12000 lines)
 
 ## Topics Covered
 
@@ -25,13 +25,13 @@ I have created a sample Vue app which touches upon the following concepts/constr
 
 ## How to Run 
 
-Steps are provided below are applicable in VS Code
+Steps provided below are applicable in VS Code
 
 1. Install the extension - Live Server by Ritwick Dey
 2. Put the following into the user settings
 
 ```json   
-"liveServer.settings.root":"/vue-2.6.12-coverage",
+"liveServer.settings.root":"/vue-2.x-coverage",
 "liveServer.settings.host": "localhost",
 "liveServer.settings.port": 5500,
 ```	
