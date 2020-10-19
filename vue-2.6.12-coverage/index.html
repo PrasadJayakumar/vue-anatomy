@@ -8,114 +8,22 @@
   <body>
     <div id="demo">
       <h1>Vue.js code coverage app</h1>
-      <div id="template-syntax">
-        <h2>Template Syntax</h2>
-        <p>Using mustaches: {{ rawHtml }}</p>
-        <p>Using v-html directive: <span v-html="rawHtml"></span></p>
-        <p>Simple JS expressions are {{ 1+2 ? 'OK' : 'NOT OK' }}</p>
-      </div>
-      <div id="computed-props">
-        <h2>Computed Properties</h2>
-        <div id="basic-examples" v-once>
-          <p>Full Name (v-once): {{ fullName | titleCase}}</p>
-        </div>
-        <div id="computed-vs-watched">
-          <input v-model="firstName" placeholder="first name" />
-          <input v-model="lastName" placeholder="last name" />
-          <p>Full Name: {{ fullName }}</p>
-        </div>
-      </div>
-      <div id="child-component-counter">
-        <h2>Child Components</h2>
-        <span>
-          <input
-            id="show-button-counter"
-            v-model="buttonCounter"
-            name="button-counter"
-            type="radio"
-            value="show"
-          />
-          <label for="show-button-counter">Show</label>
-          <input
-            id="hide-button-counter"
-            v-model="buttonCounter"
-            name="button-counter"
-            type="radio"
-            value="hide"
-          />
-          <label for="hide-button-counter">Hide</label>
-        </span>
-        <transition name="fade">
-          <keep-alive>
-            <button-counter
-              :initial-counter="counter"
-              :increment-value="1"
-              @event-msg="onEventMsg('keep-alive-counter',$event)"
-              v-if="buttonCounter=='show'"
-            ></button-counter>
-          </keep-alive>
-        </transition>
-        <transition>
-          <button-counter
-            :initial-counter="counter"
-            :increment-value="2"
-            @event-msg="onEventMsg('regular-counter',$event)"
-            v-if="buttonCounter=='show'"
-            #fff
-          ></button-counter>
-        </transition>
-      </div>
-      <div id="lifecycle-events">
-        <container>
-          <template v-slot:header>Events Table</template>
-          <table>
-            <thead>
-              <tr>
-                <th>Index</th>
-                <th>Keep-alive</th>
-                <th>Regular</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="({id, msg}, index) in eventMsgs" :comp="id">
-                <td class="index">{{index}}</td>
-                <td class="comp1">
-                  {{id == 'keep-alive-counter'? msg: '&nbsp;'}}
-                </td>
-                <td class="comp2">
-                  {{id == 'regular-counter'? msg: '&nbsp;'}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </container>
-      </div>
-      <div>
-        <anchored-heading :level="4">
-          <template v-slot:default>
-            {{ "render function" | title-case }}
-          </template>
-          <template v-slot:sub-heading>child elements included</template>
-        </anchored-heading>
-      </div>
-      <div id="warn-block" v-if="warn">
-        <warn-props-default></warn-props-default>
-        <warn-props-req></warn-props-req>
-        <warn-props-type-check age="ten"></warn-props-type-check>
-        <warn-props-custom-check :age="10"></warn-props-custom-check>
-        <warn-non-present></warn-non-present>
-        <warn-reserved-prefix></warn-reserved-prefix>
-        <warn-invalid-handler @click="none"></warn-invalid-handler>
-        <warn-bind-without-args v-bind="10"></warn-bind-without-args>
-        <warn-bind-lsntr-without-args></warn-bind-lsntr-without-args>
-        <warn-comp-def></warn-comp-def>
-      </div>
+      <template-syntax></template-syntax>
+      <computed-props></computed-props>
+      <parent-child></parent-child>
+      <render-functions></render-functions>
+      <warn-block></warn-block>
     </div>
-    <script src="warns/warn-comp-compile.js"></script>
-    <script src="warns/warn-comp-runtime.js"></script>
-    <script src="components/button-counter.js"></script>
-    <script src="components/container.js"></script>
-    <script src="components/anchored-heading.js"></script>
-    <script src="app.js"></script>
+    <script src="src/warns/warn-comp-init.js"></script>
+    <script src="src/warns/warn-comp-render.js"></script>
+    <script src="src/warns/index.js"></script>
+    <script src="src/components/template-syntax.js"></script>
+    <script src="src/components/computed-props.js"></script>
+    <script src="src/parent-child/button-counter.js"></script>
+    <script src="src/parent-child/index.js"></script>
+    <script src="src/render-functions/anchored-heading.js"></script>
+    <script src="src/render-functions/index.js"></script>
+    <script src="src/components/container.js"></script>
+    <script src="src/app.js"></script>
   </body>
 </html>
