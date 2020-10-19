@@ -1,6 +1,12 @@
-import './button-counter.js';
+import { ButtonCounter } from './button-counter.js';
 
+// Global Registration
 Vue.component('parent-child', {
+  
+  // Local Registration
+  components: {
+    'button-counter': ButtonCounter,
+  },
   data() {
     return {
       eventMsgs: [],

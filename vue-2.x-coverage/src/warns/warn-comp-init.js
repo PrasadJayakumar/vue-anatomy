@@ -1,10 +1,3 @@
-Vue.config.productionTip = true;
-Vue.config.devtools = true;
-
-Vue.config.warnHandler = function (msg, vm, trace) {
-  console.log(`Warn: ${msg}`);
-};
-
 // line: 1170
 // strats.el
 // warn(

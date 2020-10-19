@@ -1,10 +1,3 @@
-Vue.config.productionTip = true;
-Vue.config.devtools = true;
-
-Vue.config.warnHandler = function (msg, vm, trace) {
-  console.log(`Warn: ${msg}`);
-};
-
 // warning will be raised only when the component is used
 
 // line 1657

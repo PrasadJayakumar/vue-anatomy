@@ -1,6 +1,12 @@
-import './anchored-heading.js'
+import { AnchoredHeading } from './anchored-heading.js';
 
+// Global Registration
 Vue.component('render-functions', {
+
+  // Local Registration
+  components: {
+    'anchored-heading': AnchoredHeading,
+  },
   data() {
     return {
       eventMsgs: [],

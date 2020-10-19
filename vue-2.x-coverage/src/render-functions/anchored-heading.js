@@ -1,4 +1,5 @@
-Vue.component('anchored-heading', {
+// Define a local Vue component
+export const AnchoredHeading = {
   render: function (createElement) {
     return createElement(
       'div', // tag name
@@ -18,4 +19,4 @@ Vue.component('anchored-heading', {
       required: true,
     },
   },
-});
+};

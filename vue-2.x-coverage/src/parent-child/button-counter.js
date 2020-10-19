@@ -1,5 +1,5 @@
-// Define a new global component called button-counter
-Vue.component('button-counter', {
+// Define a local Vue component
+export const ButtonCounter = {
   props: {
     initialCounter: Number,
     incrementValue: {
@@ -48,4 +48,4 @@ Vue.component('button-counter', {
   destroyed() {
     this.$emit('event-msg', 'destroyed');
   },
-});
+};
