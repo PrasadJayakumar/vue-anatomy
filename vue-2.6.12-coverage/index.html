@@ -2,8 +2,9 @@
 <html>
   <head>
     <title>Vue.js code coverage app</title>
-    <script src="./vue.js"></script>
     <link rel="stylesheet" href="global.css" />
+
+    <script src="./vue.js"></script>
   </head>
   <body>
     <div id="demo">
@@ -14,16 +15,12 @@
       <render-functions></render-functions>
       <warn-block></warn-block>
     </div>
-    <script src="src/warns/warn-comp-init.js"></script>
-    <script src="src/warns/warn-comp-render.js"></script>
-    <script src="src/warns/index.js"></script>
-    <script src="src/components/template-syntax.js"></script>
-    <script src="src/components/computed-props.js"></script>
-    <script src="src/parent-child/button-counter.js"></script>
-    <script src="src/parent-child/index.js"></script>
-    <script src="src/render-functions/anchored-heading.js"></script>
-    <script src="src/render-functions/index.js"></script>
-    <script src="src/components/container.js"></script>
-    <script src="src/app.js"></script>
+    <script type="module" src="src/components/template-syntax.js"></script>
+    <script type="module" src="src/components/computed-props.js"></script>
+    <script type="module" src="src/components/container.js"></script>    
+    <script type="module" src="src/parent-child/index.js"></script>
+    <script type="module" src="src/render-functions/index.js"></script>
+    <script type="module" src="src/warns/index.js"></script>
+    <script type="module" src="src/app.js"></script>
   </body>
 </html>

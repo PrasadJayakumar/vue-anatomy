@@ -1,8 +1,11 @@
+import './warn-comp-init.js';
+import './warn-comp-render.js';
+
 Vue.component('warn-block', {
   data() {
     return {
       warn: true,
-    }
+    };
   },
   template: ` 
     <div id="warn-block" v-if="warn">
@@ -17,5 +20,5 @@ Vue.component('warn-block', {
       <warn-bind-lsntr-without-args></warn-bind-lsntr-without-args>
       <warn-comp-def></warn-comp-def>
     </div>
-  `
-})
+  `,
+});

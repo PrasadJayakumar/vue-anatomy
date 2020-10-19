@@ -1,3 +1,5 @@
+import './button-counter.js';
+
 Vue.component('parent-child', {
   data() {
     return {

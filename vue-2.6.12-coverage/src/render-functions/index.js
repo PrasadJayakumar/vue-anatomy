@@ -1,3 +1,5 @@
+import './anchored-heading.js'
+
 Vue.component('render-functions', {
   data() {
     return {
