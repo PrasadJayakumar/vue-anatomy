@@ -18,7 +18,13 @@ Vue.component('warn-block', {
       <warn-invalid-handler @click="none"></warn-invalid-handler>
       <warn-bind-without-args v-bind="10"></warn-bind-without-args>
       <warn-bind-lsntr-without-args></warn-bind-lsntr-without-args>
-      <warn-comp-def></warn-comp-def>
+      <warn-comp-def></warn-comp-def>    
+      <warn-data-key></warn-data-key>
+      <warn-native-modifier></warn-native-modifier>
+      <warn-multiple-root-render></warn-multiple-root-render>      
+      <warn-async-reject></warn-async-reject>
+      <warn-failed-mount></warn-failed-mount>
+      <warn-multiple-root></warn-multiple-root>
     </div>
   `,
 });

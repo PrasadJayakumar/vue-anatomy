@@ -139,7 +139,7 @@ Vue.component('warn-bind-lsntr-without-args', {
 // line: 3198
 // createComponent(...)
 // warn(("Invalid Component definition: " + (String(Ctor))), context);
-Vue.component('warn-comp-def', 'not-correct');
+Vue.component('warn-comp-def', 'wrong-comp-def');
 
 // line: 3390
 // _createElement(...)
@@ -151,3 +151,66 @@ Vue.component('warn-comp-def', 'not-correct');
 // Vue.component('warn-non-prim-key', {
 //   template: '<div></div>',
 // });
+
+Vue.component('warn-data-key', {
+  render: function (createElement) {
+    let nonPrimitiveValue = { myKey: 'not-correct' };
+    return createElement('div', { key: nonPrimitiveValue });
+  },
+});
+
+// line: 3417
+// _createElement(...)
+// warn(
+//   ("The .native modifier for v-on is only valid on components but it was used on <" + tag + ">."),
+//   context
+// );
+Vue.component('warn-native-modifier', {
+  template: '<div v-on:click.native="myFn"></div>',
+});
+
+// line: 3577
+// renderMixin(...)
+// warn(
+//   'Multiple root nodes returned from render function. Render function ' +
+//   'should return a single root node.',
+//   vm
+// );
+Vue.component('warn-multiple-root-render', {
+  render: function (createElement) {
+    return [createElement('div', {}), createElement('div', {})];
+  },
+});
+
+// line: 3679
+// resolveAsyncComponent(...)
+// warn(
+//   "Failed to resolve async component: " + (String(factory)) +
+//   (reason ? ("\nReason: " + reason) : '')
+// );
+Vue.component('warn-async-reject', function (resolve, reject) {
+  setTimeout(function () {
+    // Pass the component definition to the resolve callback
+    reject('check the warning')
+  }, 500)
+});
+
+// line: 4037
+// mountComponent(...)
+// warn(
+//   'Failed to mount component: template or render function not defined.',
+//   vm
+// );
+Vue.component('warn-failed-mount', {});
+
+// line: 9645
+// closeElement(...)
+// warnOnce(
+//   "Component template should contain exactly one root element. " +
+//   "If you are using v-if on multiple elements, " +
+//   "use v-else-if to chain them instead.",
+//   { start: element.start }
+// );
+Vue.component('warn-multiple-root', {
+  template: '<div></div><div></div>',
+});

@@ -6,7 +6,7 @@ PS: I am doing my preparations to become a Vue contributor
 
 **Current State of the App**
 
-I have created a sample Vue app which touches upon the following concepts/constructs.  This app currently covers 63.6% of Vue codebase (7600+ lines of overall 12000 lines)
+I have created a sample Vue app which touches upon the following concepts/constructs.  This app currently covers 65.6% of Vue codebase (7850+ lines of overall 12000 lines)
 
 ## Topics Covered
 
