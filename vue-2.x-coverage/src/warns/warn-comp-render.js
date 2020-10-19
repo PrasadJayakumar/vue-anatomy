@@ -191,8 +191,8 @@ Vue.component('warn-multiple-root-render', {
 Vue.component('warn-async-reject', function (resolve, reject) {
   setTimeout(function () {
     // Pass the component definition to the resolve callback
-    reject('check the warning')
-  }, 500)
+    reject('check the warning');
+  }, 500);
 });
 
 // line: 4037
@@ -202,6 +202,108 @@ Vue.component('warn-async-reject', function (resolve, reject) {
 //   vm
 // );
 Vue.component('warn-failed-mount', {});
+
+// line: 4457
+// Watcher(...)
+// warn(
+//   "Failed watching path: \"" + expOrFn + "\" " +
+//   'Watcher only accepts simple dot-delimited paths. ' +
+//   'For full control, use a function instead.',
+//   vm
+// );
+Vue.component('warn-watch-path', {
+  data() {
+    return {
+      val: { a: 0, b: 1 },
+    };
+  },
+  watch: {
+    "val['a']": function (newVal, oldVal) {},
+  },
+});
+
+// line: 4670
+// initProps(...)
+// warn(
+//   ("\"" + hyphenatedKey + "\" is a reserved attribute and cannot be used as component prop."),
+//   vm
+// );
+Vue.component('warn-props-reserved', {
+  props: ['key', 'ref', 'slot', 'is', 'slot-scope'],
+  template: '<div></div>',
+});
+
+// line: 4677
+// initProps(...)
+// warn(
+//   "Avoid mutating a prop directly since the value will be " +
+//   "overwritten whenever the parent component re-renders. " +
+//   "Instead, use a data or computed property based on the prop's " +
+//   "value. Prop being mutated: \"" + key + "\"",
+//   vm
+// );
+Vue.component('warn-child-comp', {
+  props: ['parentVal'],
+  methods: {
+    fn() {
+      this.parentVal = { c: 2 }; // AVOID
+    },
+  },
+  template: '<div>{{ fn() }}</div>',
+});
+Vue.component('warn-props-mutation', {
+  data() {
+    return {
+      val: { a: 0, b: 1 },
+    };
+  },
+  template: `<warn-child-comp :parent-val='val'></warn-child-comp>`,
+});
+
+// line: 4706
+// initData(...)
+// warn(
+//   'data functions should return an object:\n' +
+//   'https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function',
+//   vm
+// );
+Vue.component('warn-data-fn', {
+  data() {
+    return 'not correct';
+  },
+  template: '<div></div>',
+});
+
+// line: 4721
+// initData(...)
+// warn(
+//   ("Method \"" + key + "\" has already been defined as a data property."),
+//   vm
+// );
+Vue.component('warn-key-conflict-data', {
+  data() {
+    return { val: 10 };
+  },
+  methods: {
+    val() {},
+  },
+  template: '<div></div>',
+});
+
+// line: 4728
+// initData(...)
+// warn(
+//   "The data property \"" + key + "\" is already declared as a prop. " +
+//   "Use prop default value instead.",
+//   vm
+// );
+Vue.component('warn-key-conflict-prop', {
+  props: ["val"],
+  data() {
+    return { val: 10 };
+  },
+  template: '<div></div>',
+});
 
 // line: 9645
 // closeElement(...)
