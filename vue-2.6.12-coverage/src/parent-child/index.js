@@ -61,7 +61,7 @@ Vue.component('parent-child', {
               <tr>
                 <th>Index</th>
                 <th>Keep-alive</th>
-                <th>Regular</th>template-syntax
+                <th>Regular</th>
               </tr>
             </thead>
             <tbody>
