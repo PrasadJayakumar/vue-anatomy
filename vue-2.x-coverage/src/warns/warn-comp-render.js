@@ -274,36 +274,90 @@ Vue.component('warn-data-fn', {
   template: '<div></div>',
 });
 
-// line: 4721
-// initData(...)
+// line: 4766
+// initComputed (vm, computed)
 // warn(
-//   ("Method \"" + key + "\" has already been defined as a data property."),
+//   ("Getter is missing for computed property \"" + key + "\"."),
 //   vm
 // );
-Vue.component('warn-key-conflict-data', {
-  data() {
-    return { val: 10 };
-  },
-  methods: {
-    val() {},
-  },
-  template: '<div></div>',
-});
-
-// line: 4728
-// initData(...)
+// line: 4818
+// defineComputed (...)
+// warn(
+//   ("Computed property \"" + key + "\" was assigned to but it has no setter."),
+//   this
+// );
+// line: 4721 - initData(...)
+// warn("Method \"" + key + "\" has already been defined as a data property.")
+// line: 4728 - initData(...)
 // warn(
 //   "The data property \"" + key + "\" is already declared as a prop. " +
 //   "Use prop default value instead.",
 //   vm
 // );
-Vue.component('warn-key-conflict-prop', {
-  props: ["val"],
+// line: 4789 - initComputed(...)
+// warn(("The computed property \"" + key + "\" is already defined in data."), vm);
+// warn(("The computed property \"" + key + "\" is already defined as a prop."), vm);
+Vue.component('warn-conflict', {
+  props: ['valA', 'valB'],
   data() {
-    return { val: 10 };
+    return { valA: 10, valC: 20 };
+  },
+  computed: {
+    valB() {
+      return 30;
+    },
+    valC() {
+      return 40;
+    },
+    valD: {
+      // getter missing
+      // setter missing
+    },
+  },
+  methods: {
+    valD() {},
   },
   template: '<div></div>',
 });
+
+// initMethods (vm, methods)
+// line 4853
+// warn(
+//   "Method \"" + key + "\" has type \"" + (typeof methods[key]) + "\" in the component definition. " +
+//   "Did you reference the function correctly?",
+//   vm
+// );
+// line 4861
+// warn(
+//   ("Method \"" + key + "\" has already been defined as a prop."),
+//   vm
+// );
+// line 4866
+// warn(
+//   "Method \"" + key + "\" conflicts with an existing Vue instance method. " +
+//   "Avoid defining component methods that start with _ or $."
+// );
+Vue.component('warn-method-init', {
+  props: ["val"],
+  methods: {
+    objNotAllowed: {},
+    val(){},
+    _NotAllowed(){},
+    $NotAllowed(){},
+  },
+  template: '<div></div>',
+});
+
+// stateMixin (Vue)
+// line 4915
+// warn(
+//   'Avoid replacing instance root $data. ' +
+//   'Use nested data properties instead.',
+//   this
+// );
+// line 4922
+// warn("$props is readonly.", this);
+// TODO
 
 // line: 9645
 // closeElement(...)

@@ -1,3 +1,20 @@
+// line: 5073
+// Vue (options)
+// warn('Vue is a constructor and should be called with the `new` keyword');
+// line: 5384
+// initGlobalAPI (Vue)
+// warn(
+//   'Do not replace the Vue.config object, set individual fields instead.'
+// );
+// Vue({})
+
+// line: 5666
+// query (el)
+// warn(
+//   'Cannot find element: ' + el
+// );
+new Vue({el: '#not-exists'})
+
 // line: 1170
 // strats.el
 // warn(
