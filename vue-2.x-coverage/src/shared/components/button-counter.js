@@ -1,8 +1,14 @@
+const template = `
+  <button v-on:click="count=count+incrementBy">
+    You clicked me {{ count }} times.
+  </button>
+`;
+
 // Define a local Vue component
 export const ButtonCounter = {
   props: {
-    initialCounter: Number,
-    incrementValue: {
+    initial: Number,
+    incrementBy: {
       type: Number,
       default: 1,
       validator: function (value) {
@@ -12,11 +18,10 @@ export const ButtonCounter = {
   },
   data() {
     return {
-      count: this.initialCounter,
+      count: this.initial,
     };
   },
-  template:
-    '<button v-on:click="count=count+incrementValue">You clicked me {{ count }} times.</button>',
+  template,
   // Lifecycle Hooks
   beforeCreate() {
     this.$emit('event-msg', 'beforeCreate');

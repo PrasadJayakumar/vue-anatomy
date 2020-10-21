@@ -1,4 +1,4 @@
-import './warn-comp-init.js';
+// import './warn-comp-init.js';
 import './warn-comp-render.js';
 
 // line: 5933
