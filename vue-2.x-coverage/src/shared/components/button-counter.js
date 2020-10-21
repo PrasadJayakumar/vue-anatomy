@@ -7,6 +7,7 @@ const template = `
 // Define a local Vue component
 export const ButtonCounter = {
   props: {
+    keyName: String,
     initial: Number,
     incrementBy: {
       type: Number,
@@ -24,33 +25,33 @@ export const ButtonCounter = {
   template,
   // Lifecycle Hooks
   beforeCreate() {
-    this.$emit('event-msg', 'beforeCreate');
+    this.$emit('event-msg', { id: 'yet-to-know', msg: 'beforeCreate' });
   },
   created() {
-    this.$emit('event-msg', 'created');
+    this.$emit('event-msg', { id: this.keyName, msg: 'created' });
   },
   beforeMount() {
-    this.$emit('event-msg', 'beforeMount');
+    this.$emit('event-msg', { id: this.keyName, msg: 'beforeMount' });
   },
   mounted() {
-    this.$emit('event-msg', 'mounted');
+    this.$emit('event-msg', { id: this.keyName, msg: 'mounted' });
   },
   beforeUpdate() {
-    this.$emit('event-msg', 'beforeUpdate');
+    this.$emit('event-msg', { id: this.keyName, msg: 'beforeUpdate' });
   },
   updated() {
-    this.$emit('event-msg', 'updated');
+    this.$emit('event-msg', { id: this.keyName, msg: 'updated' });
   },
   activated() {
-    this.$emit('event-msg', 'activated');
+    this.$emit('event-msg', { id: this.keyName, msg: 'activated' });
   },
   deactivated() {
-    this.$emit('event-msg', 'deactivated');
+    this.$emit('event-msg', { id: this.keyName, msg: 'deactivated' });
   },
   beforeDestroy() {
-    this.$emit('event-msg', 'beforeDestroy');
+    this.$emit('event-msg', { id: this.keyName, msg: 'beforeDestroy' });
   },
   destroyed() {
-    this.$emit('event-msg', 'destroyed');
+    this.$emit('event-msg', { id: this.keyName, msg: 'destroyed' });
   },
 };
