@@ -1,5 +1,5 @@
 const template = `
-  <button v-on:click="count=count+incrementBy">
+  <button v-on:click="onClick($event)">
     You clicked me {{ count }} times.
   </button>
 `;
@@ -21,6 +21,14 @@ export const ButtonCounter = {
     return {
       count: this.initial,
     };
+  },
+  methods: {
+    onClick(event) {
+      this.count = this.count + this.incrementBy;
+
+      let bus = this.$root;
+      bus.$emit('event-bus-msg', 'I am working', this.count, event);
+    },
   },
   template,
   // Lifecycle Hooks

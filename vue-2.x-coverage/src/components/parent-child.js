@@ -32,5 +32,11 @@ Vue.component('parent-child', {
       this.eventMsgs.push(event);
     },
   },
+  mounted() {
+    let vm = this.$root;
+    vm.$on('event-bus-msg', function (...args) {
+      console.log('event bus msg: ', args);
+    });
+  },
   template,
 });
