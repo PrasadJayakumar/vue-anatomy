@@ -6,7 +6,7 @@ import './components/render-functions/index.js';
 import './components/warns/index.js';
 
 const template = `
-  <div class="container-fluid">
+  <div class="container-fluid" style="width: 700px">
     <h3>Vue.js code coverage app</h3>
     <template-syntax></template-syntax>
     <computed-watchers></computed-watchers>

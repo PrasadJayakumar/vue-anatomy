@@ -2,7 +2,6 @@ const template = `
 <div
   id="template-syntax"
   class="shadow p-3 mb-4 bg-white rounded"
-  style="width: 800px"
 >
   <h4>Template Syntax</h4>
   <p>Using mustaches: {{ rawHtml }}</p>

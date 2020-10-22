@@ -1,7 +1,7 @@
 import { AnchoredHeading } from './anchored-heading.js';
 
 const template = `
-<div class="shadow p-3 mb-4 bg-white rounded" style="width: 800px">
+<div class="shadow p-3 mb-4 bg-white rounded">
   <anchored-heading :level="5">
     <template v-slot:default> {{ "render function" | title-case }} </template>
     <template v-slot:sub-heading>child elements included</template>

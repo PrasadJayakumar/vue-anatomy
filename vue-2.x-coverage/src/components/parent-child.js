@@ -2,7 +2,7 @@ import { VTable } from '../shared/components/v-table.js';
 import { Child } from './child.js';
 
 const template = `
-<div class="shadow p-3 mb-4 bg-white rounded" style="width: 800px">
+<div class="shadow p-3 mb-4 bg-white rounded">
   <h4>Parent-Child Components</h4>
   <child @event-msg="onEventMsg"></child>
   <div id="lifecycle-events">
