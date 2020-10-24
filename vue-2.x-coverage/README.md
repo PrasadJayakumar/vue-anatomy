@@ -6,7 +6,7 @@ PS: I am doing my preparations to become a Vue contributor
 
 **Current State of the App**
 
-I have created a sample Vue app which touches upon the following concepts/constructs.  This app currently covers 67.6% of Vue codebase (8100+ lines of overall 12000 lines)
+I have created a sample Vue app which touches upon the following concepts/constructs.  This app currently covers 68% of Vue codebase (8150+ lines of overall 12000 lines)
 
 ## Topics Covered
 
@@ -20,6 +20,7 @@ I have created a sample Vue app which touches upon the following concepts/constr
 8. [Form Input Bindings](https://vuejs.org/v2/guide/forms.html)
 9. [Components Basics](https://vuejs.org/v2/guide/components.html)
 10. [Slots](https://vuejs.org/v2/guide/components-slots.html)
+11. [Dynamic & Async Components](https://vuejs.org/v2/guide/components-dynamic-async.html)
 12. [Render Functions](https://vuejs.org/v2/guide/render-function.html#Basics)
 13. [Transitions & Animation](https://vuejs.org/v2/guide/transitions.html)
 14. [Mixins](https://vuejs.org/v2/guide/mixins.html)

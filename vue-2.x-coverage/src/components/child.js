@@ -41,14 +41,14 @@ const template = `
       </keep-alive>
     </transition>
     <transition>
-      <button-counter
-        :keyName="$constants.REGULAR_COUNTER"
-        :initial="counter"
-        :increment-by="2"
+      <component 
+        :keyName="$constants.REGULAR_COUNTER"      
+        v-bind:is="'button-counter'" 
+        v-bind="{initial: 5, incrementBy: 2}"
         v-on="$listeners"
         v-if="action=='show'"
-        #fff
-      ></button-counter>
+      >
+      </component>
     </transition>
   </div>
 </div>
