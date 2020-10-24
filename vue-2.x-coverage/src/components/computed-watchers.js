@@ -8,13 +8,13 @@ const template = `
   <p>Full Name: {{ fullName }}</p>
   <div class="form-row">
     <div class="col-md-4 mb-3">
-      <input v-model="firstName" placeholder="first name" />
+      <input v-model.trim="firstName" v-focus placeholder="first name" />
       <span class="invalid-feedback" v-bind:class="{'d-block': !isFnValid}">
         Please provide a valid name
       </span>
     </div>
     <div class="col-md-4 mb-3">
-      <input v-model="lastName" placeholder="last name" />
+      <input v-model.trim="lastName" placeholder="last name" />
       <span class="invalid-feedback" v-bind:style="lnStyle">
         Please provide a valid name
       </span>

@@ -11,3 +11,7 @@ Vue.config.devtools = true;
 Vue.config.warnHandler = function (msg, vm, trace) {
   console.log(`Warn: ${msg}`);
 };
+
+Vue.config.errorHandler = function (msg, vm, trace) {
+  console.log(`Error: ${msg}`);
+};

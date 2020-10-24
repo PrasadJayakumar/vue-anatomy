@@ -6,7 +6,7 @@ PS: I am doing my preparations to become a Vue contributor
 
 **Current State of the App**
 
-I have created a sample Vue app which touches upon the following concepts/constructs.  This app currently covers 67% of Vue codebase (8000+ lines of overall 12000 lines)
+I have created a sample Vue app which touches upon the following concepts/constructs.  This app currently covers 67.6% of Vue codebase (8100+ lines of overall 12000 lines)
 
 ## Topics Covered
 
@@ -23,6 +23,7 @@ I have created a sample Vue app which touches upon the following concepts/constr
 12. [Render Functions](https://vuejs.org/v2/guide/render-function.html#Basics)
 13. [Transitions & Animation](https://vuejs.org/v2/guide/transitions.html)
 14. [Mixins](https://vuejs.org/v2/guide/mixins.html)
+15. [Custom Directives](https://vuejs.org/v2/guide/custom-directive.html)
 
 ## How to Run 
 

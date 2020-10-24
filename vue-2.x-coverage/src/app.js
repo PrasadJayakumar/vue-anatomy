@@ -5,6 +5,8 @@ import './components/parent-child.js';
 import './components/render-functions/index.js';
 import './components/warns/index.js';
 
+import './shared/directives/v-focus.js';
+
 import ConstantsPlugin from './constants-plugin.js';
 
 const template = `
