@@ -5,6 +5,8 @@ import './components/parent-child.js';
 import './components/render-functions/index.js';
 import './components/warns/index.js';
 
+import ConstantsPlugin from './constants-plugin.js';
+
 const template = `
   <div class="container-fluid" style="width: 700px">
     <h3>Vue.js code coverage app</h3>
@@ -15,6 +17,8 @@ const template = `
     <warn-block></warn-block>
   </div>
 `;
+
+Vue.use(ConstantsPlugin);
 
 var app = new Vue({
   name: 'app',

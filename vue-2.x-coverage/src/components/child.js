@@ -23,7 +23,7 @@ const template = `
   <transition name="fade">
     <keep-alive>
       <button-counter
-        keyName="keep-alive-counter"
+        :keyName="$constants.KEEP_ALIVE_COUNTER"
         :initial="counter"
         :increment-by="1"
         v-on="$listeners"
@@ -33,7 +33,7 @@ const template = `
   </transition>
   <transition>
     <button-counter
-      keyName="regular-counter"
+      :keyName="$constants.REGULAR_COUNTER"
       :initial="counter"
       :increment-by="2"
       v-on="$listeners"

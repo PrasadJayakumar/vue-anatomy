@@ -22,6 +22,7 @@ I have created a sample Vue app which touches upon the following concepts/constr
 10. [Slots](https://vuejs.org/v2/guide/components-slots.html)
 12. [Render Functions](https://vuejs.org/v2/guide/render-function.html#Basics)
 13. [Transitions & Animation](https://vuejs.org/v2/guide/transitions.html)
+14. [Mixins](https://vuejs.org/v2/guide/mixins.html)
 
 ## How to Run 
 
