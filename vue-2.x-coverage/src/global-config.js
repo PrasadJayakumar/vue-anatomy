@@ -1,3 +1,15 @@
+// Begin: Loading resource for Webpack configuration sake
+
+import Vue from 'vue';
+globalThis.Vue = Vue;
+
+import '../public/css/global.css'
+import '../public/css/bootstrap-4.5.3.css'
+import '../public/css/bootstrap-grid-4.5.3.css'
+import '../public/favicon.ico'
+
+// End: Webpack configuration
+
 // Filter -- deprecated in Vue 3
 Vue.filter('titleCase', function (value) {
   if (!value) return '';
