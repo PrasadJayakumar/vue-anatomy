@@ -4,9 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
-// Try the environment variable, otherwise use root
-const ASSET_PATH = '/';
-
 module.exports = {
   mode: 'production', // development, production or none
   entry: {
@@ -52,18 +49,4 @@ module.exports = {
       favicon: './public/favicon.ico',
     }),
   ],
-  // optimization: {
-  //   usedExports: true,
-  //   runtimeChunk: 'single',
-  //   splitChunks: {
-  //     cacheGroups: {
-  //       vendor: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         name: 'vendors',
-  //         enforce: true,
-  //         chunks: 'all',
-  //       },
-  //     },
-  //   },
-  // },
 };
