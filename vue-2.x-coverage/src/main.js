@@ -5,11 +5,11 @@ import App from './app.vue';
 import '../public/css/bootstrap-4.5.3.css';
 import '../public/css/bootstrap-grid-4.5.3.css';
 
-import './global-config.js';
+import './shared/global-config.js';
 import './shared/directives/v-focus.js';
 // End: Webpack configuration
 
-import ConstantsPlugin from './constants-plugin.js';
+import ConstantsPlugin from './shared/constants-plugin.js';
 Vue.use(ConstantsPlugin);
 
 new Vue({

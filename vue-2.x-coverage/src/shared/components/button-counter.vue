@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import lifecycleHooks from '../../lifecycle-hooks.js';
+import lifecycleHooks from '../lifecycle-hooks.js';
 
 export default {
   props: {
