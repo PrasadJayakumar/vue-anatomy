@@ -1,13 +1,13 @@
-import lifecycleHooks from '../../lifecycle-hooks.js';
-
-const template = `
+<template>
   <button v-on:click="onClick($event)">
     You clicked me {{ count }} times.
   </button>
-`;
+</template>
 
-// Define a local Vue component
-export const ButtonCounter = {
+<script>
+import lifecycleHooks from '../../lifecycle-hooks.js';
+
+export default {
   props: {
     keyName: String,
     initial: Number,
@@ -32,9 +32,9 @@ export const ButtonCounter = {
       bus.$emit('event-bus-msg', 'I am working', this.count, event);
     },
   },
-  template,
   beforeCreate() {
     this.$emit('event-msg', { id: 'key-not-initialized', msg: 'beforeCreate' });
   },
   mixins: [lifecycleHooks],
 };
+</script>
