@@ -4,7 +4,6 @@ import App from './app.vue';
 // Begin: Loading resource for Webpack configuration sake
 import '../public/css/bootstrap-4.5.3.css';
 import '../public/css/bootstrap-grid-4.5.3.css';
-import '../public/favicon.ico';
 
 import './global-config.js';
 import './shared/directives/v-focus.js';

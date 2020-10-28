@@ -1,19 +1,25 @@
 const path = require('path');
+const webpack = require('webpack');
+
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const MODE = 'production'; // development, production or none
 
 module.exports = {
-  mode: 'development', // development, production or none
+  mode: MODE,
   entry: {
     app: './src/main.js',
   },
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.esm.js', // for development mode
-      // vue$: 'vue/dist/vue.esm.browser.min.js', // for production mode
+      vue$:
+        MODE == 'production'
+          ? 'vue/dist/vue.esm.browser.min.js'
+          : 'vue/dist/vue.esm.js',
     },
   },
   output: {
@@ -24,21 +30,24 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.vue$/,
+        test: /\.vue$/i,
         loader: 'vue-loader',
       },
       {
-        test: /\.css$/,
-        use: ['vue-style-loader', 'style-loader', 'css-loader'],
+        test: /\.css$/i,
+        use: 
+        MODE == 'production'
+          ? [MiniCssExtractPlugin.loader, 'css-loader']
+          : ['vue-style-loader', 'css-loader']
       },
       {
-        test: /\.(png|svg|jpg|gif|ico)$/,
+        test: /\.(png|svg|jpg|gif)$/i,
         use: [
           {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]', // retain original file name
-              outputPath: 'assets/images/',
+              outputPath: 'images/',
             },
           },
         ],
@@ -51,6 +60,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       favicon: './public/favicon.ico',
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
     }),
   ],
 };
