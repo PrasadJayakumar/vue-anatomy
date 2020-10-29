@@ -38,7 +38,7 @@ module.exports = {
         use: 
         MODE == 'production'
           ? [MiniCssExtractPlugin.loader, 'css-loader']
-          : ['vue-style-loader', 'css-loader']
+          : ['vue-style-loader', 'style-loader', 'css-loader']
       },
       {
         test: /\.(png|svg|jpg|gif)$/i,
