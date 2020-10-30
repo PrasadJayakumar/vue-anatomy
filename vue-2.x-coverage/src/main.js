@@ -2,8 +2,8 @@ import Vue from 'vue';
 import App from './app.vue';
 
 // Begin: Loading resource for Webpack configuration sake
-import '../public/css/bootstrap-4.5.3.css';
-import '../public/css/bootstrap-grid-4.5.3.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-grid.css';
 
 import './shared/global-config.js';
 import './shared/directives/v-focus.js';

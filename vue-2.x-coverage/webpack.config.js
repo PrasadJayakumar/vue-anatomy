@@ -1,11 +1,15 @@
 const path = require('path');
+const glob = require('glob');
 const webpack = require('webpack');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
 
 const MODE = 'production'; // development, production or none
 
@@ -35,10 +39,10 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: 
-        MODE == 'production'
-          ? [MiniCssExtractPlugin.loader, 'css-loader']
-          : ['vue-style-loader', 'style-loader', 'css-loader']
+        use:
+          MODE == 'production'
+            ? [MiniCssExtractPlugin.loader, 'css-loader']
+            : ['vue-style-loader', 'style-loader', 'css-loader'],
       },
       {
         test: /\.(png|svg|jpg|gif)$/i,
@@ -54,6 +58,10 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    minimize: true,
+    minimizer: [new CssMinimizerPlugin()],
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
@@ -63,6 +71,11 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
+    }),
+    new PurgecssPlugin({
+      paths: glob.sync(`${path.resolve(__dirname, 'src')}/**/*`, {
+        nodir: true,
+      }),
     }),
   ],
 };
