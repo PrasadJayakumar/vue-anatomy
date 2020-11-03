@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import ButtonCounter from "../shared/components/button-counter.vue";
+import ButtonCounter from "~/shared/components/button-counter.vue";
 export default {
   components: {
     "button-counter": ButtonCounter,

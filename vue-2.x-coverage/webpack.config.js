@@ -11,7 +11,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 
-const MODE = 'production'; // development, production or none
+const MODE = 'development'; // development, production or none
 
 module.exports = {
   mode: MODE,
@@ -20,6 +20,7 @@ module.exports = {
   },
   resolve: {
     alias: {
+      '~': path.resolve(__dirname, 'src/'),
       vue$:
         MODE == 'production'
           ? 'vue/dist/vue.esm.browser.min.js'

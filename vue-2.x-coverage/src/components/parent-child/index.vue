@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import VTable from "../shared/components/v-table.vue";
+import VTable from "~/shared/components/v-table.vue";
 import Child from "./child.vue";
 
 export default {

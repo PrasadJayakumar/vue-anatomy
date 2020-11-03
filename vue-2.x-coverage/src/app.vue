@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import TemplateSyntax from "./components/template-syntax.vue";
-import ComputedWatchers from "./components/computed-watchers.vue";
-import ParentChild from "./components/parent-child.vue";
-import AsyncComp from "./components/async-comp/index.vue";
+import TemplateSyntax from "~/components/template-syntax.vue";
+import ComputedWatchers from "~/components/computed-watchers.vue";
+import ParentChild from "~/components/parent-child/index.vue";
+import AsyncComp from "~/components/async-comp/index.vue";
 
 export default {
   components: {
