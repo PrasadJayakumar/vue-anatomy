@@ -68,6 +68,7 @@ Vue.component('warn-props-custom-check', {
   props: {
     age: {
       type: Number,
+      default: 0,
       validator: value => value >= 18
     }
   },
@@ -221,7 +222,7 @@ Vue.component('warn-watch-path', {
     }
   },
   watch: {
-    "val['a']": function(newVal, oldVal) {}
+    "val['a']": function() {}
   }
 })
 
