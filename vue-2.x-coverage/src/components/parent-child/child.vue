@@ -30,21 +30,21 @@
       <transition name="fade">
         <keep-alive>
           <button-counter
-            :keyName="$constants.KEEP_ALIVE_COUNTER"
+            v-if="action == 'show'"
+            :key-name="$constants.KEEP_ALIVE_COUNTER"
             :initial="counter"
             :increment-by="1"
             v-on="$listeners"
-            v-if="action == 'show'"
           ></button-counter>
         </keep-alive>
       </transition>
       <transition>
         <component
-          :keyName="$constants.REGULAR_COUNTER"
-          v-bind:is="'button-counter'"
+          :is="'button-counter'"
+          v-if="action == 'show'"
+          :key-name="$constants.REGULAR_COUNTER"
           v-bind="{ initial: 5, incrementBy: 2 }"
           v-on="$listeners"
-          v-if="action == 'show'"
         >
         </component>
       </transition>
@@ -53,18 +53,18 @@
 </template>
 
 <script>
-import ButtonCounter from "~/shared/components/button-counter.vue";
+import ButtonCounter from '~/shared/components/button-counter.vue'
 export default {
   components: {
-    "button-counter": ButtonCounter,
+    'button-counter': ButtonCounter
   },
   data() {
     return {
       counter: 5,
-      action: "show",
-    };
-  },
-};
+      action: 'show'
+    }
+  }
+}
 </script>
 
 <style scoped>

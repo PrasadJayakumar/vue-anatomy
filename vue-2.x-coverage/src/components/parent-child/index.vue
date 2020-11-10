@@ -9,34 +9,34 @@
 </template>
 
 <script>
-import VTable from "~/shared/components/v-table.vue";
-import Child from "./child.vue";
+import VTable from '~/shared/components/v-table.vue'
+import Child from './child.vue'
 
 export default {
-  name: "parent-child",
+  name: 'ParentChild',
   components: {
     Child,
-    VTable,
+    VTable
   },
   data() {
     return {
       headers: [
-        { text: "Id", value: "id" },
-        { text: "Message", value: "msg" },
+        { text: 'Id', value: 'id' },
+        { text: 'Message', value: 'msg' }
       ],
-      eventMsgs: [],
-    };
+      eventMsgs: []
+    }
+  },
+  mounted() {
+    let vm = this.$root
+    vm.$on('event-bus-msg', function(...args) {
+      console.log('event bus msg: ', args)
+    })
   },
   methods: {
     onEventMsg(event) {
-      this.eventMsgs.push(event);
-    },
-  },
-  mounted() {
-    let vm = this.$root;
-    vm.$on("event-bus-msg", function (...args) {
-      console.log("event bus msg: ", args);
-    });
-  },
-};
+      this.eventMsgs.push(event)
+    }
+  }
+}
 </script>

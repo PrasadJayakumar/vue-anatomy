@@ -6,13 +6,13 @@
     <div class="form-row">
       <div class="col-md-4 mb-3">
         <input v-model.trim="firstName" v-focus placeholder="first name" />
-        <span class="invalid-feedback" v-bind:class="{ 'd-block': !isFnValid }">
+        <span class="invalid-feedback" :class="{ 'd-block': !isFnValid }">
           Please provide a valid name
         </span>
       </div>
       <div class="col-md-4 mb-3">
         <input v-model.trim="lastName" placeholder="last name" />
-        <span class="invalid-feedback" v-bind:style="lnStyle">
+        <span class="invalid-feedback" :style="lnStyle">
           Please provide a valid name
         </span>
       </div>
@@ -22,38 +22,38 @@
 
 <script>
 export default {
-  name: "computed-watchers",
+  name: 'ComputedWatchers',
   data() {
     return {
-      firstName: "prasad",
+      firstName: 'prasad',
       isFnValid: true,
 
-      lastName: "jayakumar",
-      lnStyle: { display: "none !important" },
-    };
+      lastName: 'jayakumar',
+      lnStyle: { display: 'none !important' }
+    }
   },
   computed: {
     fullName() {
-      return this.firstName + " " + this.lastName;
-    },
+      return this.firstName + ' ' + this.lastName
+    }
   },
   watch: {
     firstName(value) {
-      this.firstName = value;
-      this.isFnValid = this.validateName(value);
+      this.firstName = value
+      this.isFnValid = this.validateName(value)
     },
     lastName(value) {
-      this.lastName = value;
+      this.lastName = value
       if (this.validateName(value))
-        this.lnStyle = { display: "none !important" };
-      else this.lnStyle = { display: "block !important" };
-    },
+        this.lnStyle = { display: 'none !important' }
+      else this.lnStyle = { display: 'block !important' }
+    }
   },
   methods: {
     validateName(value) {
-      let regex = /^[a-zA-Z]+$/;
-      return regex.test(value);
-    },
-  },
-};
+      let regex = /^[a-zA-Z]+$/
+      return regex.test(value)
+    }
+  }
+}
 </script>

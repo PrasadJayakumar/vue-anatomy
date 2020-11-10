@@ -1,5 +1,5 @@
 <template>
-  <div id="warn-block" v-if="warn">
+  <div v-if="warn" id="warn-block">
     <warn-unknown></warn-unknown>
     <warn-props-default></warn-props-default>
     <warn-props-req></warn-props-req>
@@ -34,15 +34,15 @@
 </template>
 
 <script>
-import "./warn-comp-init.js";
-import "./warn-comp-render.js";
+import './warn-comp-init.js'
+import './warn-comp-render.js'
 
 export default {
-  name: "warns",
+  name: 'Warns',
   data() {
     return {
-      warn: true,
-    };
-  },
-};
+      warn: true
+    }
+  }
+}
 </script>

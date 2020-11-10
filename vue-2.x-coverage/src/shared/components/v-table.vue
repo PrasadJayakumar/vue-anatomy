@@ -10,12 +10,17 @@
       <table class="table table-striped">
         <tr>
           <th>#</th>
-          <th v-for="header in headers">{{ header.text }}</th>
+          <th v-for="(header, idx) in headers" :key="'h' + idx">
+            {{ header.text }}
+          </th>
         </tr>
         <tbody>
-          <tr v-for="(item, rowIdx) in items">
+          <tr v-for="(item, rowIdx) in items" :key="'r' + rowIdx">
             <td>{{ rowIdx + 1 }}</td>
-            <td v-for="(header, colIdx) in headers">
+            <td
+              v-for="(header, colIdx) in headers"
+              :key="'r' + rowIdx + 'c' + colIdx"
+            >
               {{ item[headers[colIdx].value] }}
             </td>
           </tr>
@@ -34,15 +39,15 @@ export default {
   props: {
     headers: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     items: {
       type: Array,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   data() {
-    return {};
-  },
-};
+    return {}
+  }
+}
 </script>

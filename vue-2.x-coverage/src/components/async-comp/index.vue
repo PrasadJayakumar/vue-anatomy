@@ -8,17 +8,15 @@
 </template>
 
 <script>
-import Vue from "vue";
-
 export default {
-  name: "async-comp",
+  name: 'AsyncComp',
+  components: {
+    users: () => import(/* webpackChunkName: 'users' */ './users.vue')
+  },
   data() {
     return {
-      showAsynComp: false,
-    };
-  },
-  components: {
-    users: () => import(/* webpackChunkName: 'users' */ "./users.vue"),
-  },
-};
+      showAsynComp: false
+    }
+  }
+}
 </script>
