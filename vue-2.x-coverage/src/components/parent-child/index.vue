@@ -3,7 +3,10 @@
     <div class="card-header">Parent-Child Components</div>
     <div class="card-body">
       <child @event-msg="onEventMsg"></child>
-      <v-table :headers="headers" :items="eventMsgs"></v-table>
+      <v-table :headers="headers" :items="eventMsgs">
+        <template #header>Header...</template>
+        <template #footer>Footer...</template>
+      </v-table>
     </div>
   </div>
 </template>

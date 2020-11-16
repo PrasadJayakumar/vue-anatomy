@@ -2,9 +2,15 @@ import Vue from 'vue'
 
 // Register a global custom directive called `v-focus`
 Vue.directive('focus', {
-  // When the bound element is inserted into the DOM...
-  inserted: function(el) {
+  bind(el, binding, vnode) {
+    vnode.context.$emit('event-msg', { id: binding.name, msg: 'bind' })
+  },
+  inserted(el, binding, vnode) {
+    vnode.context.$emit('event-msg', { id: binding.name, msg: 'inserted' })
     // Focus the element
     el.focus()
+  },
+  unbind(el, binding, vnode) {
+    vnode.context.$emit('event-msg', { id: binding.name, msg: 'unbind' })
   }
 })

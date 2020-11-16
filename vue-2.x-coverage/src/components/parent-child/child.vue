@@ -42,6 +42,7 @@
         <keep-alive>
           <button-counter
             v-if="action == 'show'"
+            v-focus
             :key-name="$constants.KEEP_ALIVE_COUNTER"
             :initial="counter"
             :increment-by="1"

@@ -6,7 +6,7 @@
       <p>Full Name: {{ fullName }}</p>
       <div class="row">
         <div class="col-sm-4">
-          <input v-model.trim="firstName" v-focus placeholder="first name" />
+          <input v-model.trim="firstName" placeholder="first name" />
           <span class="invalid-feedback" :class="{ 'd-block': !isFnValid }">
             Please provide a valid name
           </span>

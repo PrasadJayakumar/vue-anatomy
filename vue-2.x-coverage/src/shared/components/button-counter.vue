@@ -5,14 +5,15 @@
 </template>
 
 <script>
-import lifecycleHooks from '../lifecycle-hooks.js'
+import lifecycleHooks from '../lifecycle-hooks-comp.js'
 
 export default {
+  name: 'ButtonCounter',
   mixins: [lifecycleHooks],
   props: {
     keyName: {
       type: String,
-      default: ''
+      default: 'button-counter'
     },
     initial: {
       type: Number,
