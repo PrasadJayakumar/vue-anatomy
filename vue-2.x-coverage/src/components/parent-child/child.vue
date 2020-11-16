@@ -1,30 +1,41 @@
 <template>
   <div id="child">
     <div>
-      <input
-        id="show-button-counter"
-        v-model="action"
-        name="button-counter"
-        type="radio"
-        value="show"
-      />
-      <label for="show-button-counter">Show</label>
-      <input
-        id="hide-button-counter"
-        v-model="action"
-        name="button-counter"
-        type="radio"
-        value="hide"
-      />
-      <label for="hide-button-counter">Hide</label>
-      <input
-        id="destroy-button-counter"
-        v-model="action"
-        name="button-counter"
-        type="radio"
-        value="destroy"
-      />
-      <label for="destroy-button-counter">Destroy</label>
+      <div class="form-check form-check-inline">
+        <input
+          id="show-button-counter"
+          v-model="action"
+          class="form-check-input"
+          name="button-counter"
+          type="radio"
+          value="show"
+        />
+        <label class="form-check-label" for="show-button-counter">Show</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          id="hide-button-counter"
+          v-model="action"
+          class="form-check-input"
+          name="button-counter"
+          type="radio"
+          value="hide"
+        />
+        <label class="form-check-label" for="hide-button-counter">Hide</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          id="destroy-button-counter"
+          v-model="action"
+          class="form-check-input"
+          name="button-counter"
+          type="radio"
+          value="destroy"
+        />
+        <label class="form-check-label" for="destroy-button-counter"
+          >Destroy</label
+        >
+      </div>
     </div>
     <div v-if="action != 'destroy'">
       <transition name="fade">
@@ -53,7 +64,7 @@
 </template>
 
 <script>
-import ButtonCounter from '~/shared/components/button-counter.vue'
+import ButtonCounter from '@/shared/components/button-counter.vue'
 export default {
   components: {
     'button-counter': ButtonCounter

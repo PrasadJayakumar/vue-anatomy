@@ -1,20 +1,22 @@
 <template>
-  <div id="computed-watchers" class="shadow p-3 mb-4 bg-white rounded">
-    <h4>Computed Properties and Watchers</h4>
-    <p v-once>Full Name (v-once): {{ fullName | titleCase }}</p>
-    <p>Full Name: {{ fullName }}</p>
-    <div class="form-row">
-      <div class="col-md-4 mb-3">
-        <input v-model.trim="firstName" v-focus placeholder="first name" />
-        <span class="invalid-feedback" :class="{ 'd-block': !isFnValid }">
-          Please provide a valid name
-        </span>
-      </div>
-      <div class="col-md-4 mb-3">
-        <input v-model.trim="lastName" placeholder="last name" />
-        <span class="invalid-feedback" :style="lnStyle">
-          Please provide a valid name
-        </span>
+  <div id="computed-watchers" class="card mb-2">
+    <div class="card-header">Computed Properties and Watchers</div>
+    <div class="card-body">
+      <p v-once>Full Name (v-once): {{ fullName | titleCase }}</p>
+      <p>Full Name: {{ fullName }}</p>
+      <div class="row">
+        <div class="col-sm-4">
+          <input v-model.trim="firstName" v-focus placeholder="first name" />
+          <span class="invalid-feedback" :class="{ 'd-block': !isFnValid }">
+            Please provide a valid name
+          </span>
+        </div>
+        <div class="col-sm-4">
+          <input v-model.trim="lastName" placeholder="last name" />
+          <span class="invalid-feedback" :style="lnStyle">
+            Please provide a valid name
+          </span>
+        </div>
       </div>
     </div>
   </div>

@@ -1,5 +1,7 @@
 <template>
-  <button @click="onClick($event)">You clicked me {{ count }} times.</button>
+  <button class="btn btn-secondary mr-1" @click="onClick($event)">
+    You clicked me {{ count }} times.
+  </button>
 </template>
 
 <script>

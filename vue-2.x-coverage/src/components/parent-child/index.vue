@@ -1,15 +1,15 @@
 <template>
-  <div class="shadow p-3 mb-4 bg-white rounded">
-    <h4>Parent-Child Components</h4>
-    <child @event-msg="onEventMsg"></child>
-    <div id="lifecycle-events">
+  <div class="card mb-2">
+    <div class="card-header">Parent-Child Components</div>
+    <div class="card-body">
+      <child @event-msg="onEventMsg"></child>
       <v-table :headers="headers" :items="eventMsgs"></v-table>
     </div>
   </div>
 </template>
 
 <script>
-import VTable from '~/shared/components/v-table.vue'
+import VTable from './v-table.vue'
 import Child from './child.vue'
 
 export default {

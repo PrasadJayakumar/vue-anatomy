@@ -5,9 +5,10 @@
     </div>
 
     <div
+      class="table-responsive"
       style="overflow-x: auto; overflow-y: auto; height: 200px; width: 500px"
     >
-      <table class="table table-striped">
+      <table class="table table-striped table-sm">
         <tr>
           <th>#</th>
           <th v-for="(header, idx) in headers" :key="'h' + idx">
