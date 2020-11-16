@@ -1,8 +1,10 @@
 <template>
-  <div class="card" style="width: 18rem">
-    <div v-for="user in usersData" :key="user.id" class="card-body">
-      <h5 class="card-title">{{ user.fullName }}</h5>
-      <p class="card-text">{{ user.email }}</p>
+  <div class="card-group">
+    <div v-for="user in usersData" :key="user.id" class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ user.fullName }}</h5>
+        <p class="card-text">{{ user.email }}</p>
+      </div>
     </div>
   </div>
 </template>

@@ -1,8 +1,13 @@
 <template>
-  <div id="Async Components" class="shadow p-3 mb-4 bg-white rounded">
-    <button @click="showAsynComp = true">Render Async Component</button><br />
-    <div v-if="showAsynComp">
-      <users></users>
+  <div id="Async Components" class="card mb-2">
+    <div class="card-header">Render Async Component</div>
+    <div class="card-body">
+      <button class="btn btn-secondary mb-2" @click="showAsynComp = true">
+        Load
+      </button>
+      <div v-if="showAsynComp">
+        <users></users>
+      </div>
     </div>
   </div>
 </template>
