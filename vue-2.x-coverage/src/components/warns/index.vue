@@ -20,7 +20,7 @@ export default {
   name: 'Warns',
   data() {
     return {
-      warn: false,
+      warn: true,
       warnComps: [
         { name: 'warn-unknown' },
         { name: 'warn-props-default' },

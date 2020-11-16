@@ -20,7 +20,9 @@
               v-for="(header, colIdx) in headers"
               :key="header.value + '-' + item.id"
             >
-              {{ item[headers[colIdx].value] }}
+              <slot name="item" :item="item">
+                {{ item[headers[colIdx].value] }}
+              </slot>
             </td>
           </tr>
         </tbody>
