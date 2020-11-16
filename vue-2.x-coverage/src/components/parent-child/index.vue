@@ -3,28 +3,26 @@
     <div class="card-header">Parent-Child Components</div>
     <div class="card-body">
       <child @event-msg="onEventMsg"></child>
-      <v-table :headers="headers" :items="eventMsgs">
-        <template #header>Header...</template>
-        <template #footer>Footer...</template>
-      </v-table>
+      <v-data-table :headers="headers" :items="eventMsgs"> </v-data-table>
     </div>
   </div>
 </template>
 
 <script>
-import VTable from './v-table.vue'
+import VDataTable from '@/shared/components/v-data-table.vue'
 import Child from './child.vue'
 
 export default {
   name: 'ParentChild',
   components: {
     Child,
-    VTable
+    VDataTable
   },
   data() {
     return {
       headers: [
         { text: 'Id', value: 'id' },
+        { text: 'Name', value: 'name' },
         { text: 'Message', value: 'msg' }
       ],
       eventMsgs: []
@@ -38,7 +36,7 @@ export default {
   },
   methods: {
     onEventMsg(event) {
-      this.eventMsgs.push(event)
+      this.eventMsgs.push({ id: this.eventMsgs.length + 1, ...event })
     }
   }
 }

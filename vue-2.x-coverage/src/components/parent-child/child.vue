@@ -1,5 +1,5 @@
 <template>
-  <div id="child">
+  <div id="child" class="mb-2">
     <div>
       <div class="form-check form-check-inline">
         <input

@@ -1,26 +1,24 @@
+// Reference: https://vuetifyjs.com/en/components/data-tables/#item
 <template>
   <div>
-    <div style="padding: 8px 0px">
-      <slot name="header"></slot>
-    </div>
-
     <div
       class="table-responsive"
       style="overflow-x: auto; overflow-y: auto; height: 200px; width: 500px"
     >
       <table class="table table-striped table-sm">
-        <tr>
-          <th>#</th>
-          <th v-for="(header, idx) in headers" :key="'h' + idx">
+        <!-- <li v-for="item in items" :key="item.id">
+          <slot name="item" :item="item" :remove="removeItem" />
+        </li> -->
+        <thead>
+          <th v-for="header in headers" :key="header.value">
             {{ header.text }}
           </th>
-        </tr>
+        </thead>
         <tbody>
-          <tr v-for="(item, rowIdx) in items" :key="'r' + rowIdx">
-            <td>{{ rowIdx + 1 }}</td>
+          <tr v-for="item in items" :key="item.id">
             <td
               v-for="(header, colIdx) in headers"
-              :key="'r' + rowIdx + 'c' + colIdx"
+              :key="header.value + '-' + item.id"
             >
               {{ item[headers[colIdx].value] }}
             </td>
@@ -28,7 +26,6 @@
         </tbody>
       </table>
     </div>
-
     <div style="padding-top: 8px">
       <slot name="footer">some stats...</slot>
     </div>

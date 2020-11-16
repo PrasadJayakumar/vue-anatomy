@@ -33,7 +33,10 @@ export default {
     }
   },
   beforeCreate() {
-    this.$emit('event-msg', { id: 'key-not-initialized', msg: 'beforeCreate' })
+    this.$emit('event-msg', {
+      name: 'key-not-initialized',
+      msg: 'beforeCreate'
+    })
   },
   methods: {
     onClick(event) {
