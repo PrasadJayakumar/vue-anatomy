@@ -44,7 +44,7 @@
             v-if="action == 'show'"
             v-focus
             :key-name="$constants.KEEP_ALIVE_COUNTER"
-            :initial="counter"
+            :initial="0"
             :increment-by="1"
             v-on="$listeners"
           ></button-counter>
@@ -57,7 +57,7 @@
           :is="'button-counter'"
           v-if="action == 'show'"
           :key-name="$constants.REGULAR_COUNTER"
-          v-bind="{ initial: 5, incrementBy: 2 }"
+          v-bind="{ initial: 0, incrementBy: 2 }"
           v-on="$listeners"
         >
         </component>
@@ -67,14 +67,13 @@
 </template>
 
 <script>
-import ButtonCounter from '@/shared/components/button-counter'
+import ButtonCounter from './button-counter'
 export default {
   components: {
     'button-counter': ButtonCounter
   },
   data() {
     return {
-      counter: 5,
       action: 'show'
     }
   }

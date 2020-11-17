@@ -1,13 +1,13 @@
 const fetchUsersData = [
   {
     id: 7,
-    email: 'michael.lawson@reqres.in',
-    fullName: 'Michael Lawson'
+    email: 'prasad.jayakumar@reqres.in',
+    fullName: 'Prasad Jayakumar'
   },
   {
     id: 8,
-    email: 'lindsay.ferguson@reqres.in',
-    fullName: 'Lindsay Ferguson'
+    email: 'fourdots@reqres.in',
+    fullName: 'Four Dots'
   }
 ]
 

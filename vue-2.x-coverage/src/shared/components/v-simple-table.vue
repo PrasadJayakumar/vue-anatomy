@@ -3,7 +3,7 @@
   <div>
     <div
       class="table-responsive"
-      style="overflow-x: auto; overflow-y: auto; height: 200px; width: 500px"
+      style="overflow-x: auto; overflow-y: auto; height: 200px;"
     >
       <table class="table table-striped table-sm">
         <slot></slot>
