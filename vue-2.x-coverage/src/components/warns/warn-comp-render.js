@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 // warning will be raised only when the component is used
 
 // line 1657
@@ -14,12 +16,13 @@ Vue.component('warn-props-default', {
   props: {
     myList: {
       type: Array,
-      default: [10, 20], // wrong usage of Array or Object defaults
+      // eslint-disable-next-line
+      default: [10, 20] // wrong usage of Array or Object defaults
       // default: () => [10, 20], // correct usage
-    },
+    }
   },
-  template: '<div></div>',
-});
+  template: '<div></div>'
+})
 
 // line: 1690
 // assertProp(..)
@@ -32,11 +35,11 @@ Vue.component('warn-props-req', {
   props: {
     age: {
       type: Number,
-      required: true,
-    },
+      required: true
+    }
   },
-  template: '<div></div>',
-});
+  template: '<div></div>'
+})
 
 // line: 1714
 // assertProp(..)
@@ -48,11 +51,11 @@ Vue.component('warn-props-req', {
 Vue.component('warn-props-type-check', {
   props: {
     age: {
-      type: Number,
-    },
+      type: Number
+    }
   },
-  template: '<div></div>',
-});
+  template: '<div></div>'
+})
 
 // line: 1723
 // assertProp(..)
@@ -65,11 +68,12 @@ Vue.component('warn-props-custom-check', {
   props: {
     age: {
       type: Number,
-      validator: (value) => value >= 18,
-    },
+      default: 0,
+      validator: value => value >= 18
+    }
   },
-  template: '<div></div>',
-});
+  template: '<div></div>'
+})
 
 // line: 2047
 // warnNonPresent, hasHandler, getHandler
@@ -82,8 +86,8 @@ Vue.component('warn-props-custom-check', {
 //   target
 // );
 Vue.component('warn-non-present', {
-  template: '<div><p>{{ msg }}</p></div>',
-});
+  template: '<div><p>{{ msg }}</p></div>'
+})
 
 // line: 2058
 // warnReservedPrefix, hasHandler, getHandler
@@ -97,11 +101,11 @@ Vue.component('warn-non-present', {
 Vue.component('warn-reserved-prefix', {
   data() {
     return {
-      $msg: "don't use reserved prefix",
-    };
+      $msg: "don't use reserved prefix"
+    }
   },
-  template: '<div><p>{{ $msg }}</p></div>',
-});
+  template: '<div><p>{{ $msg }}</p></div>'
+})
 
 // line: 2209
 // updateListeners(...)
@@ -110,8 +114,8 @@ Vue.component('warn-reserved-prefix', {
 //   vm
 // );
 Vue.component('warn-invalid-handler', {
-  template: '<div></div>',
-});
+  template: '<div></div>'
+})
 
 // line: 2761
 // bindObjectProps(...)
@@ -120,8 +124,8 @@ Vue.component('warn-invalid-handler', {
 //   this
 // );
 Vue.component('warn-bind-without-args', {
-  template: '<div></div>',
-});
+  template: '<div></div>'
+})
 
 // line: 2869
 // bindObjectListeners (data, value)
@@ -131,15 +135,15 @@ Vue.component('warn-bind-without-args', {
 // );
 Vue.component('warn-bind-lsntr-without-args', {
   methods: {
-    myFn() {},
+    myFn() {}
   },
-  template: '<div v-on="myFn"></div>',
-});
+  template: '<div v-on="myFn"></div>'
+})
 
 // line: 3198
 // createComponent(...)
 // warn(("Invalid Component definition: " + (String(Ctor))), context);
-Vue.component('warn-comp-def', 'wrong-comp-def');
+Vue.component('warn-comp-def', 'wrong-comp-def')
 
 // line: 3390
 // _createElement(...)
@@ -153,11 +157,11 @@ Vue.component('warn-comp-def', 'wrong-comp-def');
 // });
 
 Vue.component('warn-data-key', {
-  render: function (createElement) {
-    let nonPrimitiveValue = { myKey: 'not-correct' };
-    return createElement('div', { key: nonPrimitiveValue });
-  },
-});
+  render: function(createElement) {
+    let nonPrimitiveValue = { myKey: 'not-correct' }
+    return createElement('div', { key: nonPrimitiveValue })
+  }
+})
 
 // line: 3417
 // _createElement(...)
@@ -166,8 +170,8 @@ Vue.component('warn-data-key', {
 //   context
 // );
 Vue.component('warn-native-modifier', {
-  template: '<div v-on:click.native="myFn"></div>',
-});
+  template: '<div v-on:click.native="myFn"></div>'
+})
 
 // line: 3577
 // renderMixin(...)
@@ -177,10 +181,10 @@ Vue.component('warn-native-modifier', {
 //   vm
 // );
 Vue.component('warn-multiple-root-render', {
-  render: function (createElement) {
-    return [createElement('div', {}), createElement('div', {})];
-  },
-});
+  render: function(createElement) {
+    return [createElement('div', {}), createElement('div', {})]
+  }
+})
 
 // line: 3679
 // resolveAsyncComponent(...)
@@ -188,12 +192,12 @@ Vue.component('warn-multiple-root-render', {
 //   "Failed to resolve async component: " + (String(factory)) +
 //   (reason ? ("\nReason: " + reason) : '')
 // );
-Vue.component('warn-async-reject', function (resolve, reject) {
-  setTimeout(function () {
+Vue.component('warn-async-reject', function(resolve, reject) {
+  setTimeout(function() {
     // Pass the component definition to the resolve callback
-    reject('check the warning');
-  }, 500);
-});
+    reject('check the warning')
+  }, 500)
+})
 
 // line: 4037
 // mountComponent(...)
@@ -201,7 +205,7 @@ Vue.component('warn-async-reject', function (resolve, reject) {
 //   'Failed to mount component: template or render function not defined.',
 //   vm
 // );
-Vue.component('warn-failed-mount', {});
+Vue.component('warn-failed-mount', {})
 
 // line: 4457
 // Watcher(...)
@@ -214,13 +218,13 @@ Vue.component('warn-failed-mount', {});
 Vue.component('warn-watch-path', {
   data() {
     return {
-      val: { a: 0, b: 1 },
-    };
+      val: { a: 0, b: 1 }
+    }
   },
   watch: {
-    "val['a']": function (newVal, oldVal) {},
-  },
-});
+    "val['a']": function() {}
+  }
+})
 
 // line: 4670
 // initProps(...)
@@ -230,8 +234,8 @@ Vue.component('warn-watch-path', {
 // );
 Vue.component('warn-props-reserved', {
   props: ['key', 'ref', 'slot', 'is', 'slot-scope'],
-  template: '<div></div>',
-});
+  template: '<div></div>'
+})
 
 // line: 4677
 // initProps(...)
@@ -246,19 +250,19 @@ Vue.component('warn-child-comp', {
   props: ['parentVal'],
   methods: {
     fn() {
-      this.parentVal = { c: 2 }; // AVOID
-    },
+      this.parentVal = { c: 2 } // AVOID
+    }
   },
-  template: '<div>{{ fn() }}</div>',
-});
+  template: '<div>{{ fn() }}</div>'
+})
 Vue.component('warn-props-mutation', {
   data() {
     return {
-      val: { a: 0, b: 1 },
-    };
+      val: { a: 0, b: 1 }
+    }
   },
-  template: `<warn-child-comp :parent-val='val'></warn-child-comp>`,
-});
+  template: `<warn-child-comp :parent-val='val'></warn-child-comp>`
+})
 
 // line: 4706
 // initData(...)
@@ -269,10 +273,10 @@ Vue.component('warn-props-mutation', {
 // );
 Vue.component('warn-data-fn', {
   data() {
-    return 'not correct';
+    return 'not correct'
   },
-  template: '<div></div>',
-});
+  template: '<div></div>'
+})
 
 // line: 4766
 // initComputed (vm, computed)
@@ -300,25 +304,29 @@ Vue.component('warn-data-fn', {
 Vue.component('warn-conflict', {
   props: ['valA', 'valB'],
   data() {
-    return { valA: 10, valC: 20 };
+    // eslint-disable-next-line
+    return { valA: 10, valC: 20 }
   },
   computed: {
+    // eslint-disable-next-line
     valB() {
-      return 30;
+      return 30
     },
+    // eslint-disable-next-line
     valC() {
-      return 40;
+      return 40
     },
     valD: {
       // getter missing
       // setter missing
-    },
+    }
   },
   methods: {
-    valD() {},
+    // eslint-disable-next-line
+    valD() {}
   },
-  template: '<div></div>',
-});
+  template: '<div></div>'
+})
 
 // initMethods (vm, methods)
 // line 4853
@@ -338,15 +346,16 @@ Vue.component('warn-conflict', {
 //   "Avoid defining component methods that start with _ or $."
 // );
 Vue.component('warn-method-init', {
-  props: ["val"],
+  props: ['val'],
   methods: {
     objNotAllowed: {},
-    val(){},
-    _NotAllowed(){},
-    $NotAllowed(){},
+    // eslint-disable-next-line
+    val() {},
+    _NotAllowed() {},
+    $NotAllowed() {}
   },
-  template: '<div></div>',
-});
+  template: '<div></div>'
+})
 
 // stateMixin (Vue)
 // line 4915
@@ -368,5 +377,5 @@ Vue.component('warn-method-init', {
 //   { start: element.start }
 // );
 Vue.component('warn-multiple-root', {
-  template: '<div></div><div></div>',
-});
+  template: '<div></div><div></div>'
+})

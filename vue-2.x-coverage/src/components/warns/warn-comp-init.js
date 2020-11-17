@@ -1,3 +1,13 @@
+import Vue from 'vue'
+
+Vue.config.warnHandler = function(msg) {
+  console.log(`Warn[fix-me]: ${msg}`)
+}
+
+Vue.config.errorHandler = function(msg) {
+  console.log(`Error[fix-me]: ${msg}`)
+}
+
 // line: 5073
 // Vue (options)
 // warn('Vue is a constructor and should be called with the `new` keyword');
@@ -6,26 +16,21 @@
 // warn(
 //   'Do not replace the Vue.config object, set individual fields instead.'
 // );
-// Vue({})
+// Vue({});
 
 // line: 5666
 // query (el)
 // warn(
 //   'Cannot find element: ' + el
 // );
-new Vue({el: '#not-exists'})
+new Vue({ el: '#not-exists' })
 
 // line: 1170
 // strats.el
 // warn(
 //   "option \"" + key + "\" can only be used during instance " +
 //   'creation with the `new` keyword.'
-// );
-
-Vue.component('warn-el', {
-  el: '#NotRight',
-});
-delete Vue.options.components['warn-el'];
+// );  template: `
 
 // line: 1261
 // strats.data
@@ -37,9 +42,11 @@ delete Vue.options.components['warn-el'];
 // );
 
 Vue.component('warn-data', {
-  data: { val: 1000 },
-});
-delete Vue.options.components['warn-data'];
+  data: function() {
+    return { val: 1000 }
+  }
+})
+delete Vue.options.components['warn-data']
 
 // line: 1414
 // validateComponentName(name)
@@ -52,8 +59,8 @@ delete Vue.options.components['warn-data'];
 // 1. as part of Create asset registration methods
 // 2. as part of Vue.extend
 
-Vue.component('100-warn-invalid-name', {});
-delete Vue.options.components['100-warn-invalid-name'];
+Vue.component('100-warn-invalid-name', {})
+delete Vue.options.components['100-warn-invalid-name']
 
 // line: 1420
 // validateComponentName(name)
@@ -61,17 +68,17 @@ delete Vue.options.components['100-warn-invalid-name'];
 //   'Do not use built-in or reserved HTML elements as component ' +
 //   'id: ' + name
 // );
-Vue.component('input', {});
-delete Vue.options.components['input'];
+Vue.component('input', {})
+delete Vue.options.components['input']
 
 // line 1444
 // normalizeProps (options, vm)
 // warn('props must be strings when using array syntax.');
 
 Vue.component('warn-props', {
-  props: [100, false],
-});
-delete Vue.options.components['warn-props'];
+  props: [100, false]
+})
+delete Vue.options.components['warn-props']
 
 // line 1456
 // normalizeProps (options, vm)
@@ -82,9 +89,9 @@ delete Vue.options.components['warn-props'];
 // );
 
 Vue.component('warn-props', {
-  props: 'I am not the right value type',
-});
-delete Vue.options.components['warn-props'];
+  props: 'I am not the right value type'
+})
+delete Vue.options.components['warn-props']
 
 // line 1509
 // assertObjectType (name, value, vm)
@@ -95,6 +102,6 @@ delete Vue.options.components['warn-props'];
 // );
 
 Vue.component('warn-computed', {
-  computed: 'I am not the right value type',
-});
-delete Vue.options.components['warn-computed'];
+  computed: 'I am not the right value type'
+})
+delete Vue.options.components['warn-computed']
