@@ -3,7 +3,11 @@
     <div class="card-header">Parent-Child Components</div>
     <div class="card-body">
       <child @event-msg="onEventMsg"></child>
-      <v-data-table :headers="headers" :items="eventMsgs"> </v-data-table>
+      <v-data-table :headers="headers" :items="eventMsgs">
+        <template v-slot:msg="{ item }">
+          <span :style="getStyle(item.msg)"> {{ item.msg }}... </span>
+        </template>
+      </v-data-table>
     </div>
   </div>
 </template>
@@ -25,6 +29,9 @@ export default {
         { text: 'Name', value: 'name' },
         { text: 'Message', value: 'msg' }
       ],
+      msgStyle: {
+        color: 'red'
+      },
       eventMsgs: []
     }
   },
@@ -35,6 +42,11 @@ export default {
     })
   },
   methods: {
+    getStyle(msg) {
+      return ['bind', 'inserted', 'unbind'].includes(msg)
+        ? { color: 'dodgerblue' }
+        : {}
+    },
     onEventMsg(event) {
       this.eventMsgs.push({ id: this.eventMsgs.length + 1, ...event })
     }
