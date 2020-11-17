@@ -1,6 +1,5 @@
-const path = require('path')
-
 module.exports = {
+  productionSourceMap: false,
   pages: {
     index: {
       entry: 'src/main.js',
