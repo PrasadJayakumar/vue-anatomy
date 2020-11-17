@@ -1,5 +1,5 @@
 <template>
-  <div id="template-syntax" class="card mb-2">
+  <div id="template-syntax" class="card h-100">
     <div class="card-header">Template Syntax</div>
     <div class="card-body">
       <p>Using mustaches: {{ rawHtml }}</p>

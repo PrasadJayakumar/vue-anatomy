@@ -1,11 +1,11 @@
 <template>
-  <div class="card mb-2">
+  <div class="card h-100">
     <div class="card-header">Parent-Child Components</div>
     <div class="card-body">
       <child @event-msg="onEventMsg"></child>
       <v-data-table :headers="headers" :items="eventMsgs">
         <template v-slot:msg="{ item }">
-          <span :style="getStyle(item.msg)"> {{ item.msg }}... </span>
+          <span :style="getStyle(item.msg)">{{ item.msg }}</span>
         </template>
       </v-data-table>
     </div>
@@ -44,7 +44,7 @@ export default {
   methods: {
     getStyle(msg) {
       return ['bind', 'inserted', 'unbind'].includes(msg)
-        ? { color: 'dodgerblue' }
+        ? { color: 'orangered' }
         : {}
     },
     onEventMsg(event) {

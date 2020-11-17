@@ -1,5 +1,5 @@
 <template>
-  <div id="computed-watchers" class="card mb-2">
+  <div id="computed-watchers" class="card h-100">
     <div class="card-header">Computed Properties and Watchers</div>
     <div class="card-body">
       <p v-once>Full Name (v-once): {{ fullName | titleCase }}</p>

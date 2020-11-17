@@ -1,6 +1,6 @@
 <template>
-  <div id="child" class="mb-2">
-    <div>
+  <div id="child" class="row mb-2 align-items-center">
+    <div class="col-sm-12 col-md-6">
       <div class="form-check form-check-inline">
         <input
           id="show-button-counter"
@@ -37,7 +37,7 @@
         >
       </div>
     </div>
-    <div v-if="action != 'destroy'">
+    <div v-if="action != 'destroy'" class="col-sm-12 col-md-3">
       <transition name="fade">
         <keep-alive>
           <button-counter
@@ -50,6 +50,8 @@
           ></button-counter>
         </keep-alive>
       </transition>
+    </div>
+    <div v-if="action != 'destroy'" class="col-sm-12 col-md-3">
       <transition>
         <component
           :is="'button-counter'"
@@ -65,7 +67,7 @@
 </template>
 
 <script>
-import ButtonCounter from '@/shared/components/button-counter.vue'
+import ButtonCounter from '@/shared/components/button-counter'
 export default {
   components: {
     'button-counter': ButtonCounter

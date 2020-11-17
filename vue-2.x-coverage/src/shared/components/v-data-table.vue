@@ -3,12 +3,9 @@
   <div>
     <div
       class="table-responsive"
-      style="overflow-x: auto; overflow-y: auto; height: 200px; width: 500px"
+      style="overflow-x: auto; overflow-y: auto; height: 200px"
     >
       <table class="table table-striped table-sm">
-        <!-- <li v-for="item in items" :key="item.id">
-          <slot name="item" :item="item" :remove="removeItem" />
-        </li> -->
         <thead>
           <th v-for="header in headers" :key="header.value">
             {{ header.text }}

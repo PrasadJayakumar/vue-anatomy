@@ -1,5 +1,4 @@
-let lifecycleHooks = {
-  // Lifecycle Hooks
+export default {
   beforeCreate() {
     this.$emit('event-msg', { name: 'yet-to-know', msg: 'beforeCreate' })
   },
@@ -31,5 +30,3 @@ let lifecycleHooks = {
     this.$emit('event-msg', { name: this.keyName, msg: 'destroyed' })
   }
 }
-
-export default lifecycleHooks

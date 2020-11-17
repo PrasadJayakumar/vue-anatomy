@@ -13,7 +13,7 @@
 </template>
 
 <script>
-// import './warn-comp-init.js'
+import './warn-comp-init.js'
 import './warn-comp-render.js'
 
 export default {

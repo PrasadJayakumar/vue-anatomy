@@ -1,11 +1,11 @@
 <template>
-  <button class="btn btn-secondary mr-1" @click="onClick($event)">
-    You clicked me {{ count }} times.
+  <button class="btn btn-secondary btn-sm" @click="onClick($event)">
+    You clicked me {{ count }} times
   </button>
 </template>
 
 <script>
-import lifecycleHooks from '../lifecycle-hooks-comp.js'
+import lifecycleHooks from './lifecycle-hooks-comp.js'
 
 export default {
   name: 'ButtonCounter',
@@ -43,7 +43,12 @@ export default {
       this.count = this.count + this.incrementBy
 
       let bus = this.$root
-      bus.$emit('event-bus-msg', 'I am working', this.count, event)
+      bus.$emit(
+        'event-bus-msg',
+        'Event bus message from button-counter',
+        this.count,
+        event
+      )
     }
   }
 }

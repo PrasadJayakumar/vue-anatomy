@@ -1,10 +1,22 @@
 <template>
-  <div id="app" class="container-fluid" style="width: 700px">
+  <div id="app" class="container-fluid">
     <h3>Vue.js code coverage app</h3>
-    <template-syntax></template-syntax>
-    <computed-watchers></computed-watchers>
-    <parent-child></parent-child>
-    <async-comp></async-comp>
+    <div class="row mb-2">
+      <div class="col-sm-12 col-md-6">
+        <template-syntax></template-syntax>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <computed-watchers></computed-watchers>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-sm-12 col-md-6">
+        <parent-child></parent-child>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <async-comp></async-comp>
+      </div>
+    </div>
     <warns></warns>
   </div>
 </template>
