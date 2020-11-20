@@ -6,7 +6,7 @@
       <p>Full Name: {{ fullName }}</p>
       <div class="row">
         <div class="col-sm-4">
-          <input v-model.trim="firstName" placeholder="first name" />
+          <input v-model="firstName" placeholder="first name" />
           <span class="invalid-feedback" :class="{ 'd-block': !isFnValid }">
             Please provide a valid name
           </span>
@@ -27,10 +27,10 @@ export default {
   name: 'ComputedWatchers',
   data() {
     return {
-      firstName: 'prasad',
+      firstName: 'mohan',
       isFnValid: true,
 
-      lastName: 'jayakumar',
+      lastName: 'ramachandran',
       lnStyle: { display: 'none !important' }
     }
   },
