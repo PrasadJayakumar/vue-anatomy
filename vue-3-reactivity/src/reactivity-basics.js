@@ -21,12 +21,15 @@ console.log(o_lhs.value, o_rhs.value);
 o.b = 3;
 console.log(o_lhs.value, o_rhs.value);
 
-// Reactive array
-let arr = reactive([0, 0]);
-let arr_lhs = computed(() => (arr[0] + arr[1]) ** 2);
-let arr_rhs = computed(() => arr[0] ** 2 + arr[1] ** 2 + 2 * arr[0] * arr[1]);
+// Reactive array of objects
+let cart = reactive([]);
+let total = computed(() =>
+  cart.reduce((subTotal, item) => subTotal + item.qty * item.price, 0)
+);
 
-arr[0] = 2;
-console.log(arr_lhs.value, arr_rhs.value);
-arr[1] = 3;
-console.log(arr_lhs.value, arr_rhs.value);
+cart.push({ name: 'laptop', qty: 1, price: 350 });
+cart.push({ name: 'desktop', qty: 1, price: 200 });
+console.log(`total: ${total.value}`);
+
+cart.push({ name: 'keyboard', qty: 2, price: 50 });
+console.log(`total: ${total.value}`);
